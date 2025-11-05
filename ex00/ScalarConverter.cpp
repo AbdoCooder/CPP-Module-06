@@ -58,48 +58,48 @@ static bool isfinite98(double d) {
 void ScalarConverter::printChar(double d, const std::string &literal) {
   (void)literal;
   if (isfinite98(d)) {
-    std::cout << "char : impossible" << std::endl;
+    std::cout << "char: impossible" << std::endl;
   } else if (d < 0 || d > 127 || !std::isprint(static_cast<int>(d))) {
-    std::cout << "char : Non displayable" << std::endl;
+    std::cout << "char: Non displayable" << std::endl;
   } else {
-    std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
+    std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
   }
 }
 
 void ScalarConverter::printInt(double d, const std::string &literal) {
   (void)literal;
   if (isfinite98(d) || d > std::numeric_limits<int>::max() || d < std::numeric_limits<int>::min()) {
-    std::cout << "int : impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
   } else {
-    std::cout << "int :" << static_cast<int>(d) << std::endl;
+    std::cout << "int: " << static_cast<int>(d) << std::endl;
   }
 }
 
 void ScalarConverter::printFloat(double d, const std::string &literal) {
   if (literal == "nan" || literal == "nanf" || d != d) {
-    std::cout << "float : nanf" << std::endl;
+    std::cout << "float: nanf" << std::endl;
   } else if (literal == "+inf" || literal == "+inff") {
-    std::cout << "float : +inff" << std::endl;
+    std::cout << "float: +inff" << std::endl;
   } else if (literal == "-inf" || literal == "-inff") {
-    std::cout << "float : -inff" << std::endl;
+    std::cout << "float: -inff" << std::endl;
   } else if (((d < 0 ? -d : d) == std::numeric_limits<double>::infinity())) {
-    std::cout << "float : " << (d < 0 ? "-inff" : "+inff") << std::endl;
+    std::cout << "float: " << (d < 0 ? "-inff" : "+inff") << std::endl;
   } else {
-    std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f" << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f" << std::endl;
   }
 }
 
 void ScalarConverter::printDouble(double d, const std::string &literal) {
   if (literal == "nan" || literal == "nanf" || d != d) {
-    std::cout << "double : nan" << std::endl;
+    std::cout << "double: nan" << std::endl;
   } else if (literal == "+inf" || literal == "+inff") {
-    std::cout << "double : +inf" << std::endl;
+    std::cout << "double: +inf" << std::endl;
   } else if (literal == "-inf" || literal == "-inff") {
-    std::cout << "double : -inf" << std::endl;
+    std::cout << "double: -inf" << std::endl;
   } else if (((d < 0 ? -d : d) == std::numeric_limits<double>::infinity())) {
-    std::cout << "double : " << (d < 0 ? "-inf" : "+inf") << std::endl;
+    std::cout << "double: " << (d < 0 ? "-inf" : "+inf") << std::endl;
   } else {
-    std::cout << "double : " << std::fixed << std::setprecision(1) << d << std::endl;
+    std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
   }
 }
 
